@@ -25,22 +25,14 @@ class CalculatorViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var otherDiscountTextField: UITextField!
     @IBOutlet weak var taxTextField: UITextField!
     @IBOutlet weak var outletButton: UIButton!
-    var price = 0.0
-    var dollarOff = 0.0
-    var discount = 0.0
-    var otherDiscount = 0.0
-    var tax = 0.0
-    var originalPrice = 0.0
-    var discountPrice = 0.0
-    var saveAmount = 0.0
-    var savePercent = 0.0
-    var payAmount = 0.0
-    var payPercent = 0.0
-    
+        
+    //MARK: Share
+
     static let shared:CalculatorViewController = CalculatorViewController()
     
-   
- 
+    // 'data' gets me access to variables and methods from the 'Calculator.swift' model
+    var data = CalculatorModel.shared
+    
     
     //MARK: UITextFieldDelegates
     
@@ -57,48 +49,16 @@ class CalculatorViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    //MARK: Own Functions
+    
+
 
     //MARK: Actions
     
     @IBAction func calculateButton(_ sender: UIButton) {
         
-        //If the "calculate" button is tapped on first when the app launches and the Text Fields are empty, assign zero to the Text Fields so that they can be unwrapped and converted to Doubles in the logic below.
+        data.calculus()
         
-        if (priceTextField.text == "") || (dollarOffTextField.text == "") || (discountTextField.text == "") || (otherDiscountTextField.text == "") || (taxTextField.text == ""){
-            
-           // sender.isEnabled = false
-
-            priceTextField.text = "0.0"
-            dollarOffTextField.text = "0.0"
-            discountTextField.text = "0.0"
-            otherDiscountTextField.text = "0.0"
-            dollarOffTextField.text = "0.0"
-            taxTextField.text = "0.0"
-        }
-        
-        // Get values frim the text boxes
-        price = Double(Float(priceTextField.text!)!)
-        dollarOff = Double(Float(dollarOffTextField.text!)!)
-        discount = Double(Float(discountTextField.text!)!)
-        otherDiscount = Double(Float(otherDiscountTextField.text!)!)
-        tax = Double(Float(taxTextField.text!)!)
-        
-        //Calculate the info
-        originalPrice = price + (price*tax)/100
-        discountPrice = (1 - (discount + otherDiscount)/100)*price - dollarOff + (tax/100)*price
-        
-
-        
-        
-        
-        //Display to the Labels (with Rounding to two decimal places)
-        originalPriceLabel.text = "Original Price $\(Double(round(100*originalPrice)/100))"
-        discountPriceLabel.text = "Dsicount Price $\(Double(round(100*discountPrice)/100))"
-        //discountPriceLabel.text = "Pay Amount $\(Double(round(100*payAmount)/100))"
-        
-        
-        
-
    }
     
     //MARK: Other Stuff
