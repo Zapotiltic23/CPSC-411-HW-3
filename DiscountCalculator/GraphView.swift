@@ -21,48 +21,107 @@ extension CGContext{
         let blueColor:CGFloat = CGFloat(hex & 0xFF)/255.0
         
         setFillColor(red:redColor, green:greenColor, blue:blueColor, alpha:1.0)
-        
-        
     }
 }
 
 
 class GraphView: UIView {
     
-    //    let CalcData: DiscountCalc = DiscountCalc.shared
+    let data = CalculatorModel.shared
     
-    override func draw(_ rect: CGRect){
+     override func draw(_ rect: CGRect){
         
         let context: CGContext = UIGraphicsGetCurrentContext()!
         
         let screenWidth = UIScreen.main.bounds.width
         let screenHeight = UIScreen.main.bounds.height
+        let totalRecHeight = screenHeight - 180.0
+        let verticalSpacing: CGFloat = 16
+        let horizontalSpacing: CGFloat = 16
         
         let leftGuide:CGFloat = 16.0
-        //        let rightGuide:CGFloat = screenWidth - leftGuide
         let topGuide:CGFloat = 64.0 + leftGuide
-        //        let botGuide:CGFloat = screenHeight - leftGuide
-        
-        // Draw Rectangle
-        //Get this hex values from AdobeColor.com
-        context.setFillColor(0x84516D)
-        //context.setFillColor(red: 0.0, green: 0.5, blue: 1.0, alpha: 1.0)
-        context.fill(CGRect(x:leftGuide, y:topGuide, width:screenWidth - 32, height:screenHeight - 96.0))
-        
-        //Draw Text
-        let myText = "Cyan Box"
-        let subText = "Baby blue"
-        
-        let textAttributes = [NSFontAttributeName: UIFont(name: "Helvetica Bold", size: 16.0)!, NSForegroundColorAttributeName: UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)]
-        
-        // This demonstrates two ways of drawinf the text with attributes:
-        // myText gets drawn with a predefined text position (myTextPos).
-        // subText gets drawn with explicit text position
-        let myTextPos: CGPoint = CGPoint(x:leftGuide + 16.0, y:topGuide + 16.0)
-        
-        myText.draw(at: myTextPos, withAttributes: textAttributes)
-        subText.draw(at: CGPoint(x:leftGuide + 16.0, y:topGuide + 32.0), withAttributes: textAttributes)
         
         //Text Attributes
+        let textAttributes = [NSFontAttributeName: UIFont(name: "Helvetica Bold", size: 12.0)!, NSForegroundColorAttributeName: UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)]
+        
+        // ----------------------------Draw Price Rectangle------------------------------
+        //Get this hex values from AdobeColor.com
+        
+        context.setFillColor(0x84516D)
+        context.fill(CGRect(x:leftGuide, y:topGuide, width:(screenWidth)/2 - 16, height:totalRecHeight))
+    
+        //Draw Price Text & Legend
+        context.setFillColor(0x84516D)
+        context.fill(CGRect(x:leftGuide, y:totalRecHeight + verticalSpacing*6, width:10, height:10))
+        
+        let priceText = "Original Price"
+        let priceAmount = "$\(data.totalPrice)"
+        
+        let priceTextCoord = CGPoint(x:leftGuide + horizontalSpacing, y:totalRecHeight + verticalSpacing*6)
+        let priceAmountCoord = CGPoint(x:leftGuide + 16.0, y:totalRecHeight + verticalSpacing*7)
+        
+        priceText.draw(at: priceTextCoord, withAttributes: textAttributes)
+        priceAmount.draw(at: priceAmountCoord, withAttributes: textAttributes)
+        // -------------------------------------------------------------------------------
+        // ----------------------------Draw Save Rectangle--------------------------------
+        
+        let rightCorner = (screenWidth)/2
+        let savePercentHeight = (data.savePercent/100)*Float(totalRecHeight)
+        context.setFillColor(0x5DC896)
+        context.fill(CGRect(x:rightCorner, y:topGuide, width:(screenWidth)/2 - 16, height: CGFloat(savePercentHeight)))
+        
+        //Draw Price Text & Legend
+        context.setFillColor(0x5DC896)
+        context.fill(CGRect(x:leftGuide + horizontalSpacing*8, y:totalRecHeight + verticalSpacing*6, width:10, height:10))
+        
+        let saveText = "You Saved"
+        let saveAmount = "$\(data.saveAmount)"
+        let savePercent = "\(data.savePercent)%"
+        
+        let saveTextCoord = CGPoint(x: leftGuide + horizontalSpacing*9, y: totalRecHeight + verticalSpacing*6)
+        let saveAmountCoord = CGPoint(x: leftGuide + horizontalSpacing*9, y: totalRecHeight + verticalSpacing*7)
+        let savePercentCoord = CGPoint(x: leftGuide + horizontalSpacing*9, y: totalRecHeight + verticalSpacing*8)
+        
+        saveText.draw(at: saveTextCoord, withAttributes: textAttributes)
+        saveAmount.draw(at: saveAmountCoord, withAttributes: textAttributes)
+        savePercent.draw(at: savePercentCoord, withAttributes: textAttributes)
+        // -------------------------------------------------------------------------------
+        // ----------------------------Draw Pay Rectangle---------------------------------
+        
+        let payPercentHeight = Float(totalRecHeight) - savePercentHeight
+        context.setFillColor(0xE6643B)
+        context.fill(CGRect(x: rightCorner, y: CGFloat(savePercentHeight) + 96 - 16, width: (screenWidth)/2 - 16, height: CGFloat(payPercentHeight)))
+        
+        // Draw Pay Text & Legend
+        context.setFillColor(0xE6643B)
+        context.fill(CGRect(x:leftGuide + horizontalSpacing*16, y:totalRecHeight + verticalSpacing*6, width:10, height:10))
+        
+        let payText = "You Pay"
+        let payAmount = "$\(data.totalPrice - data.saveAmount)"
+        let payPercent = "\(data.payPercent)%"
+        
+        let payTextCoord = CGPoint(x: leftGuide + horizontalSpacing*17, y: totalRecHeight + verticalSpacing*6)
+        let payAmountCoord = CGPoint(x: leftGuide + horizontalSpacing*17, y: totalRecHeight + verticalSpacing*7)
+        let payPercentCoord = CGPoint(x: leftGuide + horizontalSpacing*17, y: totalRecHeight + verticalSpacing*8)
+        
+        payText.draw(at: payTextCoord, withAttributes: textAttributes)
+        payAmount.draw(at: payAmountCoord, withAttributes: textAttributes)
+        payPercent.draw(at: payPercentCoord, withAttributes: textAttributes)
+        // ----------------------------------------------------------------------------------------
+        // ----------------------------Draw Price Rectangle Legend---------------------------------
+        
+    //    context.setFillColor(0x84516D)
+    //    context.fill(CGRect(x:leftGuide, y:totalRecHeight + verticalSpacing*7, width:10, height:10))
+        
+        
+
+        
+
+        
+        
+        
+        
+        
     }
 }

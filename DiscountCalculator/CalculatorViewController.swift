@@ -27,11 +27,9 @@ class CalculatorViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var outletButton: UIButton!
         
     //MARK: Share
-
-    static let shared:CalculatorViewController = CalculatorViewController()
     
     // 'data' gets me access to variables and methods from the 'Calculator.swift' model
-    var data = CalculatorModel.shared
+    let data = CalculatorModel.shared
     
     
     //MARK: UITextFieldDelegates
@@ -46,20 +44,17 @@ class CalculatorViewController: UIViewController, UITextFieldDelegate {
         taxTextField.resignFirstResponder()
         
         return true
-        
     }
     
-    //MARK: Own Functions
-    
-
-
     //MARK: Actions
     
     @IBAction func calculateButton(_ sender: UIButton) {
         
+        firstClick()
+        getValues()
         data.calculus()
-        
-   }
+        displayData()
+    }
     
     //MARK: Other Stuff
     
@@ -102,6 +97,44 @@ class CalculatorViewController: UIViewController, UITextFieldDelegate {
     @IBAction func unwindToCalc(segue: UIStoryboardSegue){
         
     }
+    
+    //MARK: Own Functions
+    
+    private func firstClick(){
+        
+        //If the "calculate" button is tapped on first when the app launches and the Text Fields are empty, assign zero to the Text Fields so that they can be unwrapped and converted to Doubles in the logic below.
+        
+        if (priceTextField.text == "") || (dollarOffTextField.text == "") || (discountTextField.text == "") || (otherDiscountTextField.text == "") || (taxTextField.text == ""){
+            
+            // sender.isEnabled = false
+            
+            priceTextField.text = "0.0"
+            dollarOffTextField.text = "0.0"
+            discountTextField.text = "0.0"
+            otherDiscountTextField.text = "0.0"
+            dollarOffTextField.text = "0.0"
+            taxTextField.text = "7.75"
+        }
+    }
+    
+    private func getValues(){
+        
+        // Get values from the text boxes
+        data.price = Float(priceTextField.text!)!
+        data.dollarOff = Float(dollarOffTextField.text!)!
+        data.discount = Float(discountTextField.text!)!
+        data.otherDiscount = Float(otherDiscountTextField.text!)!
+        data.tax = Float(taxTextField.text!)!
+    }
+    
+    private func displayData(){
+        
+        //Display to the Labels (with Rounding to two decimal places)
+        originalPriceLabel.text = "Original Price $\(Double(round(100*data.totalPrice)/100))"
+        discountPriceLabel.text = "Discount Price $\(Double(round(100*data.discountPrice)/100))"
+        
+    }
+
     
     
     
