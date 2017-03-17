@@ -121,13 +121,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Swipe Right to view Graph" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wCY-mL-Vel">
-                                <rect key="frame" x="60" y="579" width="255" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Cochin-Italic" family="Cochin" pointSize="26"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tax %" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hyr-zk-ikB">
                                 <rect key="frame" x="16" y="259" width="140" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -135,14 +128,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XTF-Zc-DdI">
-                                <rect key="frame" x="137" y="426" width="100" height="40"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Swipe Right to Calculate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wCY-mL-Vel">
+                                <rect key="frame" x="60" y="517" width="255" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Calculate"/>
-                                <connections>
-                                    <action selector="calculateButton:" destination="rhp-HI-kYg" eventType="touchUpInside" id="83X-ib-uwC"/>
-                                </connections>
-                            </button>
+                                <fontDescription key="fontDescription" name="Cochin-Italic" family="Cochin" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -156,7 +148,6 @@
                         <outlet property="originalPriceLabel" destination="uci-2w-cmU" id="KJy-tM-AYl"/>
                         <outlet property="otherDiscountLabel" destination="OuP-Rd-c1c" id="IDA-uD-hQB"/>
                         <outlet property="otherDiscountTextField" destination="iui-N2-2ed" id="zOG-pP-6BA"/>
-                        <outlet property="outletButton" destination="XTF-Zc-DdI" id="Bsz-n2-nJ6"/>
                         <outlet property="priceLabel" destination="LSb-48-9Qs" id="aTH-jD-sui"/>
                         <outlet property="priceTextField" destination="z2f-Zi-atP" id="Bma-TF-WEb"/>
                         <outlet property="taxLabel" destination="hyr-zk-ikB" id="Lj5-a3-lt1"/>

@@ -29,6 +29,7 @@ class ResultsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    //Handles swipe back to CalculatorView
     func handleSwipe(_ sender: UISwipeGestureRecognizer){
         
         self.performSegue(withIdentifier: "unwindToCalc", sender: self)

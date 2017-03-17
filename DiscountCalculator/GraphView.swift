@@ -43,11 +43,11 @@ class GraphView: UIView {
         let topGuide:CGFloat = 64.0 + leftGuide
         
         //Text Attributes
-        let textAttributes = [NSFontAttributeName: UIFont(name: "Helvetica Bold", size: 12.0)!, NSForegroundColorAttributeName: UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)]
+        let textAttributes = [NSFontAttributeName: UIFont(name: "TimesNewRomanPS-BoldItalicMT", size: 14.0)!, NSForegroundColorAttributeName: UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)]
         
         // ----------------------------Draw Price Rectangle------------------------------
-        //Get this hex values from AdobeColor.com
         
+        //Get this hex values from AdobeColor.com
         context.setFillColor(0x84516D)
         context.fill(CGRect(x:leftGuide, y:topGuide, width:(screenWidth)/2 - 16, height:totalRecHeight))
     
@@ -108,20 +108,5 @@ class GraphView: UIView {
         payText.draw(at: payTextCoord, withAttributes: textAttributes)
         payAmount.draw(at: payAmountCoord, withAttributes: textAttributes)
         payPercent.draw(at: payPercentCoord, withAttributes: textAttributes)
-        // ----------------------------------------------------------------------------------------
-        // ----------------------------Draw Price Rectangle Legend---------------------------------
-        
-    //    context.setFillColor(0x84516D)
-    //    context.fill(CGRect(x:leftGuide, y:totalRecHeight + verticalSpacing*7, width:10, height:10))
-        
-        
-
-        
-
-        
-        
-        
-        
-        
     }
 }

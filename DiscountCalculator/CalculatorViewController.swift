@@ -1,10 +1,15 @@
 //
 //  CalculatorViewController.swift
-//  MVC-Example
+//  DiscountCalculator
 //
 //  Created by lis meza on 2/27/17.
 //  Copyright © 2017 Horacio Sanchez. All rights reserved.
 //
+// Things to do:
+// i) Address the case when you pay negative (store owes you) and resize the graph.
+// ii) Customize with cool backgrounds.
+// iii) Add icon and documentation.
+//------------------------------------------------------------------------------------
 
 import UIKit
 
@@ -48,14 +53,6 @@ class CalculatorViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: Actions
     
-    @IBAction func calculateButton(_ sender: UIButton) {
-        
-        firstClick()
-        getValues()
-        data.calculus()
-        displayData()
-    }
-    
     //MARK: Other Stuff
     
     override func viewDidLoad() {
@@ -89,6 +86,10 @@ class CalculatorViewController: UIViewController, UITextFieldDelegate {
     
     func handleSwipe(_ sender: UISwipeGestureRecognizer){
         
+        firstClick()
+        getValues()
+        data.calculus()
+        displayData()
         self.performSegue(withIdentifier: "showResult", sender: self)
     }
     
@@ -114,6 +115,8 @@ class CalculatorViewController: UIViewController, UITextFieldDelegate {
             otherDiscountTextField.text = "0.0"
             dollarOffTextField.text = "0.0"
             taxTextField.text = "7.75"
+            data.savePercent = Float(0.0)
+            data.payPercent = Float(0.0)
         }
     }
     

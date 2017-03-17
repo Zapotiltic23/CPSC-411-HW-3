@@ -19,10 +19,10 @@ class CalculatorModel {
     var totalPrice: Float
     var saveAmount: Float
     var savePercent: Float
-    //var payAmount: Float
     var payPercent: Float
     var discountPrice: Float
     
+    //Contructor
     private init(_ price: Float, _ dollarOff: Float, _ discount: Float, _ otherDiscount: Float, _ tax: Float, _ originalPrice: Float, _ discountPrice: Float, _ saveAmount: Float, _ savePercent: Float, _ payPercent: Float){
         
         self.price = price
@@ -34,7 +34,6 @@ class CalculatorModel {
         self.totalPrice = discountPrice
         self.saveAmount = saveAmount
         self.savePercent = savePercent
-        //self.payAmount = payAmount
         self.payPercent = payPercent
         self.discountPrice = discountPrice
     }
@@ -50,6 +49,24 @@ class CalculatorModel {
         saveAmount = totalPrice - discountPrice
         savePercent = (saveAmount/totalPrice)*100
         payPercent = 100 - savePercent
+        
+        //Don't allow a person to get money back from purchasing
+        if discountPrice < 0.0{
+            
+            discountPrice = totalPrice
+        }
+        
+        if (savePercent > 100.0){
+            
+            savePercent = Float(100.0)
+            saveAmount = totalPrice
+        }
+        
+        if payPercent < 0{
+            
+            payPercent = Float(0.0)
+            discountPrice = Float(0.0)
+            
+        }
     }
-
 }
