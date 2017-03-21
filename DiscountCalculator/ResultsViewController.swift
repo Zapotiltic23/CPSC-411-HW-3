@@ -1,6 +1,6 @@
 //
 // ResultsViewController.swift
-// Project: discountCalculator
+// Project: DiscountCalculator
 // Name: Horacio A Sanchez
 // Professor: David McLaren
 // Class: CPSc 411 M 7-10pm
