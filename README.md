@@ -5,3 +5,4 @@
 #
 # icon app: http://www.iconarchive.com/tag/calculator
 # CGContext extension in GraphView.swift: Taken from in-class Lab - David McLaren
+# background2: https://pixabay.com/en/blue-green-hills-houses-landscape-1296253/
