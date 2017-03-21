@@ -57,6 +57,11 @@ class CalculatorViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Sets an image as a background on the app view
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "background2")
+        self.view.insertSubview(backgroundImage, at: 0)
+        
         // Make Swipe gestures
         
         let swipeLeft: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe))
@@ -132,8 +137,8 @@ class CalculatorViewController: UIViewController, UITextFieldDelegate {
     private func displayData(){
         
         //Display to the Labels (with Rounding to two decimal places)
-        originalPriceLabel.text = "Original Price $\(Double(round(100*data.totalPrice)/100))"
-        discountPriceLabel.text = "Discount Price $\(Double(round(100*data.discountPrice)/100))"
+        originalPriceLabel.text = "Original Price $\(Float(round(100*data.totalPrice)/100))"
+        discountPriceLabel.text = "Discount Price $\(Float(round(100*data.discountPrice)/100))"
         
     }
     

@@ -60,7 +60,7 @@ class GraphView: UIView {
         context.fill(CGRect(x:leftGuide, y:totalRecHeight + verticalSpacing*6, width:10, height:10))
         
         let priceText = "Original Price"
-        let priceAmount = "$\(data.totalPrice)"
+        let priceAmount = "$\(Float(data.totalPrice))"
         
         let priceTextCoord = CGPoint(x:leftGuide + horizontalSpacing, y:totalRecHeight + verticalSpacing*6)
         let priceAmountCoord = CGPoint(x:leftGuide + 16.0, y:totalRecHeight + verticalSpacing*7)
@@ -80,8 +80,8 @@ class GraphView: UIView {
         context.fill(CGRect(x:leftGuide + horizontalSpacing*8, y:totalRecHeight + verticalSpacing*6, width:10, height:10))
         
         let saveText = "You Saved"
-        let saveAmount = "$\(data.saveAmount)"
-        let savePercent = "\(data.savePercent)%"
+        let saveAmount = "$\(Float(data.saveAmount))"
+        let savePercent = "\(Float(data.savePercent))%"
         
         let saveTextCoord = CGPoint(x: leftGuide + horizontalSpacing*9, y: totalRecHeight + verticalSpacing*6)
         let saveAmountCoord = CGPoint(x: leftGuide + horizontalSpacing*9, y: totalRecHeight + verticalSpacing*7)
@@ -102,8 +102,8 @@ class GraphView: UIView {
         context.fill(CGRect(x:leftGuide + horizontalSpacing*16, y:totalRecHeight + verticalSpacing*6, width:10, height:10))
         
         let payText = "You Pay"
-        let payAmount = "$\(data.totalPrice - data.saveAmount)"
-        let payPercent = "\(data.payPercent)%"
+        let payAmount = "$\(Float(data.totalPrice - data.saveAmount))"
+        let payPercent = "\(Float(data.payPercent))%"
         
         let payTextCoord = CGPoint(x: leftGuide + horizontalSpacing*17, y: totalRecHeight + verticalSpacing*6)
         let payAmountCoord = CGPoint(x: leftGuide + horizontalSpacing*17, y: totalRecHeight + verticalSpacing*7)

@@ -23,9 +23,6 @@ class ResultsViewController: UIViewController {
         let swipeRight: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe))
         swipeRight.direction = UISwipeGestureRecognizerDirection.right
         view.addGestureRecognizer(swipeRight)
-        
-        // Do any additional setup after loading the view.
-        
     }
     
     override func didReceiveMemoryWarning() {

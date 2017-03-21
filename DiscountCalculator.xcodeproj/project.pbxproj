@@ -15,6 +15,7 @@
 		D7DB31CE1E6D1933003FFB46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7DB31CC1E6D1933003FFB46 /* LaunchScreen.storyboard */; };
 		D7DB31DA1E6D25A7003FFB46 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DB31D91E6D25A7003FFB46 /* CalculatorViewController.swift */; };
 		D7DB31DC1E6D25D4003FFB46 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DB31DB1E6D25D4003FFB46 /* ResultsViewController.swift */; };
+		D7FCC3691E81171100E9075B /* background2.png in Resources */ = {isa = PBXBuildFile; fileRef = D7FCC3631E81171100E9075B /* background2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		D7DB31CF1E6D1933003FFB46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D7DB31D91E6D25A7003FFB46 /* CalculatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
 		D7DB31DB1E6D25D4003FFB46 /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		D7FCC3631E81171100E9075B /* background2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background2.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				D7DB31D91E6D25A7003FFB46 /* CalculatorViewController.swift */,
+				D7FCC3631E81171100E9075B /* background2.png */,
 				D7C7D2501E7737FD00F9A05E /* GraphView.swift */,
 				D7DB31DB1E6D25D4003FFB46 /* ResultsViewController.swift */,
 				D7DB31C31E6D1932003FFB46 /* AppDelegate.swift */,
@@ -135,6 +138,7 @@
 				D7DB31CE1E6D1933003FFB46 /* LaunchScreen.storyboard in Resources */,
 				D7DB31CB1E6D1933003FFB46 /* Assets.xcassets in Resources */,
 				D7DB31C91E6D1933003FFB46 /* Main.storyboard in Resources */,
+				D7FCC3691E81171100E9075B /* background2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
