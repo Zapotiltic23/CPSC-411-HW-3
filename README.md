@@ -1,7 +1,7 @@
 # CPSC-411-HW-3
 
 # CalculatorViewController.swift
-# Project: discountCalculator
+# Project: DiscountCalculator
 # Name: Horacio A Sanchez
 # Professor: David McLaren
 # Class: CPSc 411 M 7-10pm
